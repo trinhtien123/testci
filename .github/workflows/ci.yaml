@@ -17,6 +17,8 @@ jobs:
     #         echo "No changes detected in 'test' folder, skipping deployment."
     #         exit 0
     #       fi
+    - name: Checkout code
+      uses: actions/checkout@v2
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@master
       with:
@@ -39,6 +41,8 @@ jobs:
     #         echo "No changes detected in 'test' folder, skipping deployment."
     #         exit 0
     #       fi
+    - name: Checkout code
+      uses: actions/checkout@v2
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@master
       with:
