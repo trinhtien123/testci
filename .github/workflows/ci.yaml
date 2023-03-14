@@ -26,7 +26,7 @@ jobs:
         AWS_REGION: ap-northeast-1
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        SOURCE_DIR: ../../top-page
+        SOURCE_DIR: ./top-page
   deploy-closed:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
@@ -48,4 +48,4 @@ jobs:
         AWS_REGION: ap-northeast-1
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        SOURCE_DIR: ../../top-page
+        SOURCE_DIR: ./top-page
