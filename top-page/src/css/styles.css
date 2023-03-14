@@ -1,0 +1,244 @@
+/* Colors */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pulse-n-rotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  70% {
+    transform: scale(0.9) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.btn {
+  font-weight: 500;
+  border: 1px solid #333;
+  border-radius: 2px;
+  background: none;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn span {
+  display: block;
+}
+
+.btn-default {
+  padding: 5px 10px;
+}
+
+.head-tab {
+  font-size: 1.15rem;
+}
+.head-tab:before {
+  content: "";
+  width: 4.5px;
+  height: 1rem;
+  background: #000;
+  display: inline-block;
+  margin-right: 1.25rem;
+}
+
+header #top-nav {
+  min-height: 50px;
+  padding: 13px 25px;
+  background-color: #E3E3E3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header #top-nav #tnm-open-button {
+  width: 23px;
+  height: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  cursor: pointer;
+  margin-left: 10px;
+}
+header #top-nav #tnm-open-button div {
+  width: 100%;
+  height: 2px;
+  display: block;
+  background-color: #000;
+}
+header #top-nav #nav-login-btn {
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 1px 3px;
+}
+header #top-nav #nav-login-btn:hover {
+  background-color: #fff;
+  border-color: #000;
+}
+header #top-nav #nav-right-btn {
+  border: none;
+  width: 23px;
+  height: 23px;
+  display: inline-block;
+  margin-left: 22px;
+  position: relative;
+}
+header #top-nav #nav-right-btn:before {
+  background-color: #000;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 1px);
+}
+header #top-nav #nav-right-btn:after {
+  background-color: #000;
+  content: "";
+  display: block;
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 1px);
+}
+
+#top-page-content section.top-page-logo {
+  padding: 0 25px;
+  margin: 0 auto;
+  max-width: 645px;
+  text-align: center;
+}
+#top-page-content section.top-page-logo .top-page-title {
+  font-size: 1.15rem;
+  margin: 30px auto;
+}
+#top-page-content section.top-page-logo img {
+  margin: 20px auto;
+}
+#top-page-content section.popular-questions {
+  padding: 0 32.5px;
+  margin: 5px auto 40px;
+  max-width: 645px;
+}
+#top-page-content section.popular-questions .head-tab {
+  margin-bottom: 30px;
+}
+#top-page-content section.popular-questions a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  width: 100%;
+  border: 1px solid;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  height: 73px;
+  line-height: 73px;
+  transition: all 0.3s ease;
+}
+#top-page-content section.popular-questions a:hover {
+  background-color: #E3E3E3;
+}
+#top-page-content section.feedback-form {
+  background: #E3E3E3;
+  text-align: center;
+  padding: 45px 0 40px;
+}
+#top-page-content section.feedback-form form {
+  width: 100%;
+  max-width: 645px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+}
+#top-page-content section.feedback-form form input {
+  border: none;
+  padding: 5px 10px;
+  height: 45px;
+  flex: 1;
+}
+#top-page-content section.feedback-form form button {
+  border: none;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  font-size: 0;
+  transition: all 0.3s linear;
+}
+#top-page-content section.feedback-form form button[type=submit] {
+  position: absolute;
+  right: 55px;
+  background: url("../images/send-icon.png") no-repeat center;
+}
+#top-page-content section.feedback-form form button[type=submit]:hover {
+  animation: pulse 1s infinite;
+}
+#top-page-content section.feedback-form form button[type=reset] {
+  margin-left: 10px;
+  background: url("../images/refresh-icon.png") no-repeat center;
+}
+#top-page-content section.feedback-form form button[type=reset]:hover {
+  animation: pulse-n-rotate 2s infinite;
+}
+#top-page-content section.feedback-form p {
+  max-width: 645px;
+  margin: 15px auto 0;
+  padding: 0 3px;
+  text-align: left;
+}
+#top-page-content section.feature {
+  max-width: 645px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 5px 32.5px;
+}
+#top-page-content section.feature .head-tab {
+  margin: 35px 0 15px;
+}
+#top-page-content section.feature .black-dot-list {
+  list-style: none;
+  padding: 0 40px;
+}
+#top-page-content section.feature .black-dot-list li {
+  position: relative;
+  margin: 5px 0 5px 18px;
+}
+#top-page-content section.feature .black-dot-list li:before {
+  background: #000;
+  border-radius: 50%;
+  content: "";
+  width: 14px;
+  height: 14px;
+  display: block;
+  position: absolute;
+  left: -18px;
+  bottom: 3px;
+}
+#top-page-content section.infos {
+  background-color: #E3E3E3;
+  margin-top: 30px;
+  width: 100%;
+  padding: 25px 85px 15px;
+}
+#top-page-content section.infos .infos p {
+  margin: 0px auto 25px;
+  letter-spacing: 0.5px;
+}/*# sourceMappingURL=styles.css.map */
