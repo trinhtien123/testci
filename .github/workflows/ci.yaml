@@ -1,0 +1,51 @@
+name: Deploy to S3
+
+on:
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  deploy-opened:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    steps:
+    - name: Check if "top-page" folder has changed
+      run: |
+          if git diff --quiet HEAD^ HEAD --name-only | grep -q "^top-page/"; then
+            echo "Changes detected in 'test' folder, deploying to S3..."
+          else
+            echo "No changes detected in 'test' folder, skipping deployment."
+            exit 0
+          fi
+    - name: Deploy to S3
+      uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks
+      env:
+        AWS_S3_BUCKET: beauty-chat.local
+        AWS_REGION: ap-northeast-1
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        SOURCE_DIR: ./top-page
+  deploy-closed:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
+    steps:
+    - name: Check if "top-page" folder has changed
+      run: |
+          if git diff --quiet HEAD^ HEAD --name-only | grep -q "^top-page/"; then
+            echo "Changes detected in 'test' folder, deploying to S3..."
+          else
+            echo "No changes detected in 'test' folder, skipping deployment."
+            exit 0
+          fi
+    - name: Deploy to S3
+      uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks
+      env:
+        AWS_S3_BUCKET: beauty-chat.local
+        AWS_REGION: ap-northeast-1
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        SOURCE_DIR: ./top-page
