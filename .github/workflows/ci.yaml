@@ -24,7 +24,7 @@ jobs:
       with:
         args: --acl public-read --follow-symlinks
       env:
-        AWS_S3_BUCKET: beauty-chat.local
+        AWS_S3_BUCKET: top-page-uat
         AWS_REGION: ap-northeast-1
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -48,7 +48,7 @@ jobs:
       with:
         args: --acl public-read --follow-symlinks
       env:
-        AWS_S3_BUCKET: beauty-chat.local
+        AWS_S3_BUCKET: top-page-uat
         AWS_REGION: ap-northeast-1
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
